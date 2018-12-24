@@ -1,0 +1,52 @@
+version.lo: ../../../lib/dpkg/version.c ../../config.h \
+ ../../../lib/compat/compat.h ../../../lib/dpkg/c-ctype.h \
+ /opt/intel/include/stdbool.h ../../../lib/dpkg/macros.h \
+ ../../../lib/dpkg/ehandle.h /usr/include/setjmp.h /usr/include/features.h \
+ /usr/include/stdc-predef.h /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/setjmp.h \
+ /usr/include/bits/types/__sigset_t.h /usr/include/bits/setjmp2.h \
+ /opt/intel/include/stddef.h /opt/intel/include/stdarg.h \
+ ../../../lib/dpkg/string.h ../../../lib/dpkg/version.h
+
+../../config.h:
+
+../../../lib/compat/compat.h:
+
+../../../lib/dpkg/c-ctype.h:
+
+/opt/intel/include/stdbool.h:
+
+../../../lib/dpkg/macros.h:
+
+../../../lib/dpkg/ehandle.h:
+
+/usr/include/setjmp.h:
+
+/usr/include/features.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/bits/long-double.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/include/bits/types/__sigset_t.h:
+
+/usr/include/bits/setjmp2.h:
+
+/opt/intel/include/stddef.h:
+
+/opt/intel/include/stdarg.h:
+
+../../../lib/dpkg/string.h:
+
+../../../lib/dpkg/version.h:

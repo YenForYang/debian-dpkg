@@ -1,0 +1,62 @@
+libcompat_test_la-alphasort.lo: ../../../lib/compat/alphasort.c ../../config.h \
+ /usr/include/string.h /usr/include/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/stdc-predef.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/bits/long-double.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h /opt/intel/include/stddef.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/strings.h /usr/include/bits/strings_fortified.h \
+ /usr/include/bits/string_fortified.h /usr/include/dirent.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/bits/dirent.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ ../../../lib/compat/compat.h /opt/intel/include/stdarg.h
+
+../../config.h:
+
+/usr/include/string.h:
+
+/usr/include/bits/libc-header-start.h:
+
+/usr/include/features.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/bits/long-double.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/opt/intel/include/stddef.h:
+
+/usr/include/bits/types/locale_t.h:
+
+/usr/include/bits/types/__locale_t.h:
+
+/usr/include/strings.h:
+
+/usr/include/bits/strings_fortified.h:
+
+/usr/include/bits/string_fortified.h:
+
+/usr/include/dirent.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/bits/dirent.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+../../../lib/compat/compat.h:
+
+/opt/intel/include/stdarg.h:

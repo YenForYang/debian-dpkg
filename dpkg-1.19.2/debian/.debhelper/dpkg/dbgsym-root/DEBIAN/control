@@ -1,0 +1,14 @@
+Package: dpkg-dbgsym
+Source: dpkg
+Version: 1.19.2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Origin: debian
+Bugs: debbugs://bugs.debian.org
+Maintainer: Dpkg Developers <debian-dpkg@lists.debian.org>
+Installed-Size: 1398
+Depends: dpkg (= 1.19.2)
+Section: debug
+Priority: optional
+Description: debug symbols for dpkg
+Build-Ids: 3ec56e59d444905765465461972e64724d29a301 6413a6f283acdf8c1f16b56d31e3298373184b11 668327fe8c051de810439bb4b5da6934050f5e40 8dc4b0e4c9ac04e0716225e4f42a04ce6c1518b1 8e560ce938d4baaa24798ea39eb65cb95211308b 99907a1301bb20505764d98f06d45b2075613194 a68a4df1473cb6df9222f26245375232cd752a3b e882b6f5fd4131c371ffb4d0f0197127375fda1d f2d1856bf7beb8ce9d8770f4986f24b1e49ff4a5

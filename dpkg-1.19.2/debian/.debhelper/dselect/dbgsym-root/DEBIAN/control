@@ -1,0 +1,14 @@
+Package: dselect-dbgsym
+Source: dpkg
+Version: 1.19.2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Origin: debian
+Bugs: debbugs://bugs.debian.org
+Maintainer: Dpkg Developers <debian-dpkg@lists.debian.org>
+Installed-Size: 327
+Depends: dselect (= 1.19.2)
+Section: debug
+Priority: optional
+Description: debug symbols for dselect
+Build-Ids: 05b18c20bd8584a71127f69fb8aa98d96ac2111e

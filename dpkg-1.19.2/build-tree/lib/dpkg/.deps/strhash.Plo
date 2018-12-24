@@ -1,0 +1,16 @@
+strhash.lo: ../../../lib/dpkg/strhash.c ../../config.h \
+ ../../../lib/compat/compat.h ../../../lib/dpkg/string.h \
+ /opt/intel/include/stddef.h /opt/intel/include/stdbool.h \
+ ../../../lib/dpkg/macros.h
+
+../../config.h:
+
+../../../lib/compat/compat.h:
+
+../../../lib/dpkg/string.h:
+
+/opt/intel/include/stddef.h:
+
+/opt/intel/include/stdbool.h:
+
+../../../lib/dpkg/macros.h:

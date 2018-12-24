@@ -1,0 +1,110 @@
+Format: 1.8
+Date: Mon, 08 Oct 2018 11:43:48 +0200
+Source: dpkg
+Binary: dpkg libdpkg-dev dpkg-dev libdpkg-perl dselect
+Built-For-Profiles: nobiarch nocheck nodoc
+Architecture: amd64 all
+Version: 1.19.2
+Distribution: unstable
+Urgency: medium
+Maintainer: Dpkg Developers <debian-dpkg@lists.debian.org>
+Changed-By: Guillem Jover <guillem@debian.org>
+Description:
+ dpkg       - Debian package management system
+ dpkg-dev   - Debian package development tools
+ dselect    - Debian package management front-end
+ libdpkg-dev - Debian package management static library
+ libdpkg-perl - Dpkg perl modules
+Closes: 614126 909754 909959 910009
+Changes:
+ dpkg (1.19.2) unstable; urgency=medium
+ .
+   [ Guillem Jover ]
+   * dpkg: Fix --force-not-root for chown() and chmod() based syscalls, and
+     give a more meaningful error message on chroot(). Closes: #614126
+   * dpkg-divert, dpkg-statoverride: Add new --instdir and --root options,
+     and make the commands honor the DPKG_ROOT environment variable.
+   * libdpkg: Call the pager with «$SHELL -c» to respect POSIX. Closes: #910009
+   * libdpkg: Do not spawn a pager if we are going to call «cat».
+   * libdpkg: Honor DPKG_PAGER when spawning a pager.
+     Suggested by Craig Sanders <cas@taz.net.au>.
+   * libdpkg: Set LESS to “-FRSXMQ” if not already set, when spawning a pager.
+   * libdpkg: Ignore SIGPIPE when setting up a pager, and then ignore EPIPE
+     errors when writing to stdout, otherwise if we quit the pager early, the
+     program will exit with an error code.
+   * libdpkg: Set stdout to be fully buffered when using a pager.
+   * dpkg, dpkg-query: Add new --no-pager option. For dpkg this is also a
+     configuration option. Closes: #909754
+   * Perl modules:
+     - Dpkg::OpenPGP: Ignore Version field in enarmored output.
+       Fixes CPAN#127217.
+     - Dpkg::OpenPGP: Do not read the gpg user configuration file.
+     - Dpkg::Source::Functions: Reimplement is_binary() w/o using diff(1).
+     - Dpkg::Source::Package::V2: Split the BinaryFiles module into its own
+       file, and give it a more generic name (Dpkg::Source::BinaryFiles).
+     - Dpkg::Source::Package::V2: Move binary file detection to BinaryFiles
+       module.
+   * Documentation:
+     - dpkg-buildpackage(1): Clarify --build=source explanation.
+     - dsc(5): Clarify what “flattened” means in Testsuite-Triggers.
+       Prompted by Mattia Rizzolo <mattia@debian.org>.
+     - dsc(5): Add a reference to where the source formats are described.
+       Prompted by Manuel A. Fernandez Montecelo <mafm@debian.org>.
+     - dpkg-source(1): Improve documentation on vendor-specific series files.
+     - deb-control(5): Document Build-Ids field.
+       Prompted by Stuart Prescott <stuart@debian.org>.
+     - dpkg(1): Clarify which fields are affected by dependency options.
+       Prompted by James Clarke <jrtc27@debian.org>.
+     - dpkg-query(1): Document the PAGER environment variable usage.
+     - Dpkg(1): Add POD documentation about the module hierarchy and API.
+   * Code internals:
+     - dpkg-split: Use nfstrnsave() instead of nfmalloc() + memcpy().
+     - libdpkg: Add new fsys-dir module.
+     - libdpkg: Pass the file contents to the pager instead of the filename.
+     - libdpkg: Add a pager kill switch, so that it can be forcefully disabled.
+   * Build system:
+     - Distribute a LICENSE file on CPAN.
+     - Do not make the Build.PL script executable.
+     - Generalize PACKAGE_CPAN_SIGN by setting PACKAGE_DIST_IS_RELEASE instead.
+     - Add a release_status key to the CPAN metadata.
+     - Fix typo in CPAN recommends key.
+     - Improve test and author CPAN dependencies.
+   * Packaging:
+     - Break libapt-pkg5.0 instead of apt. Closes: #909959
+       Analysis by Sven Joachim <svenjoac@gmx.de>.
+   * Test suite:
+     - Skip version checks involving «dpkg --compare-versions» if not available.
+       This is relevant on CPAN or on non-dpkg-based systems.
+ .
+   [ Updated programs translations ]
+   * Polish (Łukasz Dulny).
+ .
+   [ Updated man pages translations ]
+   * German (Helge Kreutzmann).
+Checksums-Sha1:
+ d769c7ddf8899e4a7b92f08626f8e763baa3130a 1259732 dpkg-dbgsym_1.19.2_amd64.deb
+ b19ad4876143fd8fef7feb3d702eba269b16d8c3 1460916 dpkg-dev_1.19.2_all.deb
+ 5f008b67c31ec0b8a81651a45a83bb57670dd2b5 7345 dpkg_1.19.2_amd64.buildinfo
+ f282133f1a42d27991b78491f04aa39c8ab6933e 2356140 dpkg_1.19.2_amd64.deb
+ 2e7861bed191460bb1d67412094f91c4fcb18b30 295964 dselect-dbgsym_1.19.2_amd64.deb
+ 5976225e0987a5de2e606cfa52e99af188087b09 1402128 dselect_1.19.2_amd64.deb
+ 2893aa7ffb25a1f0a31ff9b35c19fcd3837e4994 2437604 libdpkg-dev_1.19.2_amd64.deb
+ 71c87a1b0e8ad42a4a816810d6ad852bad94d3e4 1366768 libdpkg-perl_1.19.2_all.deb
+Checksums-Sha256:
+ b815e5c79e446b84e917d70dae826ae37130169eb50bd639a79802bff4d068b8 1259732 dpkg-dbgsym_1.19.2_amd64.deb
+ d5ad927cc7757939d1d8da35e3efedf1cc14488b457562167798ab110c1749c4 1460916 dpkg-dev_1.19.2_all.deb
+ 96b88d4b931228947911bacaa1e97a069963ad239ef75c2c00bf75c840b48073 7345 dpkg_1.19.2_amd64.buildinfo
+ ee7b2b038fb6ff3bc0fd0fbe85bc3c78f5d894829aec1fd80a23026749d0a13a 2356140 dpkg_1.19.2_amd64.deb
+ f50f1af0d8509a2cab53c2a4bb0e96a36b614e4ee942018642255bc0be433371 295964 dselect-dbgsym_1.19.2_amd64.deb
+ 0c7b52f8e00ee1f91c5ab12f62e0bc90b29693a5429f010c1a63051d43e05db1 1402128 dselect_1.19.2_amd64.deb
+ 66420b99d9df4a6b702fff1d1d80492b6f5ec13890f481617f3a268f934d0035 2437604 libdpkg-dev_1.19.2_amd64.deb
+ cbd721cb37fa509cf9038bf8188e5de040af0174317bd0c7979dc244f01cb0d7 1366768 libdpkg-perl_1.19.2_all.deb
+Files:
+ 4e5b03a06fc960420c5f18d035443a7a 1259732 debug optional dpkg-dbgsym_1.19.2_amd64.deb
+ 76510778153fbed17450a0b2e1b554cc 1460916 utils optional dpkg-dev_1.19.2_all.deb
+ 929c592be925d1ee0145d20ff6db876e 7345 admin required dpkg_1.19.2_amd64.buildinfo
+ 1eba4b1e5ee9b66fea394d880df7de62 2356140 admin required dpkg_1.19.2_amd64.deb
+ 3bc7657cdde9a09b995e389ad3359d6c 295964 debug optional dselect-dbgsym_1.19.2_amd64.deb
+ 262c334c10a131b4c1437b90600962f6 1402128 admin optional dselect_1.19.2_amd64.deb
+ d3e505f54f419d3393fd2b1b31ac36b0 2437604 libdevel optional libdpkg-dev_1.19.2_amd64.deb
+ 29d5081a11d523c70c3a8fe9b52ce6e3 1366768 perl optional libdpkg-perl_1.19.2_all.deb

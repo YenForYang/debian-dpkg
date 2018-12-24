@@ -1,0 +1,8 @@
+dpkg-dbgsym_1.19.2_amd64.deb debug optional automatic=yes
+dpkg-dev_1.19.2_all.deb utils optional
+dpkg_1.19.2_amd64.buildinfo admin required
+dpkg_1.19.2_amd64.deb admin required
+dselect-dbgsym_1.19.2_amd64.deb debug optional automatic=yes
+dselect_1.19.2_amd64.deb admin optional
+libdpkg-dev_1.19.2_amd64.deb libdevel optional
+libdpkg-perl_1.19.2_all.deb perl optional

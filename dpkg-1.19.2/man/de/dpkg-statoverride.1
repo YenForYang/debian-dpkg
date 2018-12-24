@@ -1,0 +1,145 @@
+.\" dpkg manual page - dpkg-statoverride(1)
+.\"
+.\" Copyright © 2000-2001 Wichert Akkerman <wakkerma@debian.org>
+.\" Copyright © 2009-2011, 2013, 2015 Guillem Jover <guillem@debian.org>
+.\"
+.\" This is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program.  If not, see <https://www.gnu.org/licenses/>.
+.
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH dpkg\-statoverride 1 2018-10-08 1.19.2 dpkg\-Programmsammlung
+.nh
+.SH BEZEICHNUNG
+dpkg\-statoverride \- \(:uber Eigent\(:umerschaft und Modus von Dateien hinwegsetzen
+.
+.SH \(:UBERSICHT
+\fBdpkg\-statoverride\fP [\fIOption\fP …] \fIBefehl\fP
+.
+.SH BESCHREIBUNG
+\(Bq\fBStat\-Hinwegsetzungen\fP\(lq sind eine M\(:oglichkeit, \fBdpkg\fP(1) zu berichten,
+einen anderen Eigent\(:umer oder Modus f\(:ur eine Pfad zu verwenden, wenn ein
+Paket installiert wird (dies kann jedes Dateisystemobjekt sein, das \fBdpkg\fP
+handhabt, darunter Verzeichnisse, Ger\(:ate, usw.). Dies kann dazu verwendet
+werden, Programme, die normalerweise setuid sind, dazu zu zwingen, ohne
+setuid\-Markierung zu installieren, oder nur von einer bestimmten Gruppe
+ausf\(:uhrbar zu sein.
+.P
+\fBdpkg\-statoverride\fP ist ein Hilfswerkzeug, um die Liste der
+Status\-Hinwegsetzungen zu verwalten. Es hat drei grundlegende Funktionen:
+Hinzuf\(:ugen, Entfernen und Auflisten von Hinwegsetzungen.
+.
+.SH BEFEHLE
+.TP 
+\fB\-\-add\fP\fI Benutzer Gruppe Modus Pfad\fP
+F\(:uge eine Hinwegsetzung f\(:ur \fIPfad\fP hinzu. \fIPfad\fP muss noch nicht
+existieren wenn dieser Befehl verwendet wird; die Hinwegsetzung wird
+aufbewahrt und sp\(:ater verwendet. Benutzer und Gruppen k\(:onnen \(:uber ihren
+Namen (beispielsweise \fBroot\fP oder \fBnobody\fP) spezifiziert werden, oder \(:uber
+ihre Nummer mit vorangestelltem \(bq\fB#\fP\(cq (beispielsweise \fB#0\fP oder
+\fB#65534\fP). Der \fIModus\fP muss oktal angegeben werden.
+
+Falls \fB\-\-update\fP angegeben ist und \fIPfad\fP existiert, dann wird dieser
+sofort auf den neuen Eigent\(:umer und Modus eingestellt.
+.TP 
+\fB\-\-remove\fP\fI Pfad\fP
+Entfernt eine Hinwegsetzung f\(:ur \fIPfad\fP, der Status von \fIPfad\fP bleibt durch
+diesen Befehl unver\(:andert.
+.TP 
+\fB\-\-list\fP [\fIGlob\-Muster\fP]
+Liste alle Hinwegsetzungen auf. Falls ein Glob\-Muster spezifiziert wurde,
+begrenze die Ausgabe auf Hinwegsetzungen, die auf den Glob passen.
+.TP 
+\fB\-\-help\fP
+Zeige den Bedienungshinweis und beende.
+.TP 
+\fB\-\-version\fP
+Gebe die Version aus und beende sich.
+.
+.SH OPTIONEN
+.TP 
+\fB\-\-admindir\fP\fI Verzeichnis\fP
+Set the administrative directory to \fIdirectory\fP.  This is where the
+\fIstatoverride\fP file is stored.  Defaults to \(Fo\fI/var/lib/dpkg\fP\(Fc.
+.TP 
+\fB\-\-instdir\fP\fI directory\fP
+Set the installation directory, which refers to the directory where packages
+get installed (since dpkg 1.19.2).  Defaults to \(Fo\fI/\fP\(Fc.
+.TP 
+\fB\-\-root\fP\fI directory\fP
+Set the root directory to \fBdirectory\fP, which sets the installation
+directory to \(Fo\fIdirectory\fP\(Fc and the administrative directory to
+\(Fo\fIdirectory\fP\fB/var/lib/dpkg\fP\(Fc (since dpkg 1.19.2).
+.TP 
+\fB\-\-force\fP
+Erzwinge eine Aktion, selbst wenn eine Sinn\-\(:Uberpr\(:ufung diese normalerweise
+verb\(:ote. Dies ist notwendig, um sich \(:uber eine existierende Hinwegsetzung
+hinwegzusetzen.
+.TP 
+\fB\-\-update\fP
+Versuche den \fIPfad\fP sofort auf den neuen Eigent\(:umer und neuen Modus zu
+\(:andern, falls er existiert.
+.TP 
+\fB\-\-quiet\fP
+Sei nicht so ausf\(:uhrlich dar\(:uber, was wir machen.
+.
+.SH R\(:UCKGABEWERT
+.TP 
+\fB0\fP
+Die angeforderte Aktion wurde erfolgreich ausgef\(:uhrt.
+.TP 
+\fB1\fP
+F\(:ur \fB\-\-list\fP, falls es keine Hinwegsetzungen gab oder keine auf die
+angegebenen Metazeichen passte.
+.TP 
+\fB2\fP
+Fataler oder nicht behebbarer Fehler aufgrund ung\(:ultiger
+Befehlszeilenverwendung oder Interaktionen mit dem System, wie Zugriffe auf
+die Datenbank, Speicherzuweisungen usw.
+.
+.SH UMGEBUNG
+.TP 
+\fBDPKG_ROOT\fP
+If set and the \fB\-\-instdir\fP or \fB\-\-root\fP options have not been specified, it
+will be used as the filesystem root directory (since dpkg 1.19.2).
+.TP 
+\fBDPKG_ADMINDIR\fP
+If set and the \fB\-\-admindir\fP or \fB\-\-root\fP options have not been specified,
+it will be used as the \fBdpkg\fP data directory.
+.TP 
+\fBDPKG_COLORS\fP
+Setzt den Farbmodus (seit Dpkg 1.18.5). Die derzeit unterst\(:utzten Werte
+sind: \fBauto\fP (Vorgabe), \fBalways\fP und \fBnever\fP.
+.
+.SH DATEIEN
+.TP 
+\fI/var/lib/dpkg/statoverride\fP
+Datei, die die aktuelle Liste der Hinwegsetzungen auf dem System
+enth\(:alt. Sie befindet sich im \fBpkg\fP\-Administrationsverzeichnis, zusammen
+mit anderen f\(:ur \fBdpkg\fP wichtigen Dateien, wie \fIstatus\fP oder \fIavailable\fP.
+.br
+Hinweis: \fBdpkg\-statoverride\fP erh\(:alt die alte Kopie dieser Datei mit der
+Endung \(Bq\-old\(lq bevor es sie mit einer neuen ersetzt.
+.
+.SH "SIEHE AUCH"
+\fBdpkg\fP(1).
+.SH \(:UBERSETZUNG
+Die deutsche \(:Ubersetzung wurde 2004, 2006-2017 von Helge Kreutzmann
+<debian@helgefjell.de>, 2007 von Florian Rehnisch <eixman@gmx.de> und
+2008 von Sven Joachim <svenjoac@gmx.de>
+angefertigt. Diese \(:Ubersetzung ist Freie Dokumentation; lesen Sie die
+GNU General Public License Version 2 oder neuer f\(:ur die Kopierbedingungen.
+Es gibt KEINE HAFTUNG.

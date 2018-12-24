@@ -1,0 +1,216 @@
+Format: 1.0
+Source: dpkg
+Binary: dpkg libdpkg-dev dpkg-dev libdpkg-perl dselect
+Architecture: all amd64
+Version: 1.19.2
+Checksums-Md5:
+ 4e5b03a06fc960420c5f18d035443a7a 1259732 dpkg-dbgsym_1.19.2_amd64.deb
+ 76510778153fbed17450a0b2e1b554cc 1460916 dpkg-dev_1.19.2_all.deb
+ 1eba4b1e5ee9b66fea394d880df7de62 2356140 dpkg_1.19.2_amd64.deb
+ 3bc7657cdde9a09b995e389ad3359d6c 295964 dselect-dbgsym_1.19.2_amd64.deb
+ 262c334c10a131b4c1437b90600962f6 1402128 dselect_1.19.2_amd64.deb
+ d3e505f54f419d3393fd2b1b31ac36b0 2437604 libdpkg-dev_1.19.2_amd64.deb
+ 29d5081a11d523c70c3a8fe9b52ce6e3 1366768 libdpkg-perl_1.19.2_all.deb
+Checksums-Sha1:
+ d769c7ddf8899e4a7b92f08626f8e763baa3130a 1259732 dpkg-dbgsym_1.19.2_amd64.deb
+ b19ad4876143fd8fef7feb3d702eba269b16d8c3 1460916 dpkg-dev_1.19.2_all.deb
+ f282133f1a42d27991b78491f04aa39c8ab6933e 2356140 dpkg_1.19.2_amd64.deb
+ 2e7861bed191460bb1d67412094f91c4fcb18b30 295964 dselect-dbgsym_1.19.2_amd64.deb
+ 5976225e0987a5de2e606cfa52e99af188087b09 1402128 dselect_1.19.2_amd64.deb
+ 2893aa7ffb25a1f0a31ff9b35c19fcd3837e4994 2437604 libdpkg-dev_1.19.2_amd64.deb
+ 71c87a1b0e8ad42a4a816810d6ad852bad94d3e4 1366768 libdpkg-perl_1.19.2_all.deb
+Checksums-Sha256:
+ b815e5c79e446b84e917d70dae826ae37130169eb50bd639a79802bff4d068b8 1259732 dpkg-dbgsym_1.19.2_amd64.deb
+ d5ad927cc7757939d1d8da35e3efedf1cc14488b457562167798ab110c1749c4 1460916 dpkg-dev_1.19.2_all.deb
+ ee7b2b038fb6ff3bc0fd0fbe85bc3c78f5d894829aec1fd80a23026749d0a13a 2356140 dpkg_1.19.2_amd64.deb
+ f50f1af0d8509a2cab53c2a4bb0e96a36b614e4ee942018642255bc0be433371 295964 dselect-dbgsym_1.19.2_amd64.deb
+ 0c7b52f8e00ee1f91c5ab12f62e0bc90b29693a5429f010c1a63051d43e05db1 1402128 dselect_1.19.2_amd64.deb
+ 66420b99d9df4a6b702fff1d1d80492b6f5ec13890f481617f3a268f934d0035 2437604 libdpkg-dev_1.19.2_amd64.deb
+ cbd721cb37fa509cf9038bf8188e5de040af0174317bd0c7979dc244f01cb0d7 1366768 libdpkg-perl_1.19.2_all.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Mon, 24 Dec 2018 08:06:14 +0100
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-2),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.45),
+ bash (= 4.4.18-3.1),
+ binutils (= 2.31.1-10),
+ binutils-common (= 2.31.1-10),
+ binutils-x86-64-linux-gnu (= 2.31.1-10),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.32.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-1),
+ cpp (= 4:8.2.0-2),
+ cpp-7 (= 7.3.0-30),
+ cpp-8 (= 8.2.0-9),
+ dash (= 0.5.10.2-2),
+ debconf (= 1.5.69),
+ debhelper (= 11.5.4),
+ debianutils (= 4.8.6),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 0.45.0-1),
+ diffutils (= 1:3.6-1),
+ dpkg (= 1.19.2),
+ dpkg-dev (= 1.19.2),
+ dwz (= 0.12-2),
+ fdisk (= 2.32.1-0.1),
+ file (= 1:5.35-1),
+ findutils (= 4.6.0+git+20181018-1),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.2.0-9),
+ gawk (= 1:4.2.1+dfsg-1),
+ gcc (= 4:8.2.0-2),
+ gcc-7 (= 7.3.0-30),
+ gcc-7-base (= 7.3.0-30),
+ gcc-8 (= 8.2.0-9),
+ gcc-8-base (= 8.2.0-9),
+ gettext (= 0.19.8.1-2),
+ gettext-base (= 0.19.8.1-2),
+ grep (= 3.1-2),
+ groff-base (= 1.22.3-10),
+ gzip (= 1.9-2),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56),
+ intel-comp-ps-ss-bec-19.0.1-144 (= 19.0.1-144),
+ intltool-debian (= 0.35.0+20060710.4),
+ libacl1 (= 2.2.52-3+b1),
+ libarchive-zip-perl (= 1.64-1),
+ libasan4 (= 7.3.0-30),
+ libasan5 (= 8.2.0-9),
+ libatomic1 (= 8.2.0-9),
+ libattr1 (= 1:2.4.47-2+b2),
+ libaudit-common (= 1:2.8.4-3),
+ libaudit1 (= 1:2.8.4-3),
+ libbinutils (= 2.31.1-10),
+ libblkid1 (= 2.32.1-0.1),
+ libbsd0 (= 0.9.1-1),
+ libbz2-1.0 (= 1.0.6-9),
+ libbz2-dev (= 1.0.6-9),
+ libc-bin (= 2.28-2),
+ libc-dev-bin (= 2.28-2),
+ libc6 (= 2.28-2),
+ libc6-dev (= 2.28-2),
+ libcap-ng0 (= 0.7.9-1),
+ libcc1-0 (= 8.2.0-9),
+ libcilkrts5 (= 7.3.0-30),
+ libcroco3 (= 0.6.12-2),
+ libdb5.3 (= 5.3.28+dfsg1-0.2),
+ libdebconfclient0 (= 0.245),
+ libdpkg-perl (= 1.19.2),
+ libelf1 (= 0.175-1),
+ libfdisk1 (= 2.32.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 0.45.0-1),
+ libgcc-7-dev (= 7.3.0-30),
+ libgcc-8-dev (= 8.2.0-9),
+ libgcc1 (= 1:8.2.0-9),
+ libgcrypt20 (= 1.8.4-3),
+ libgdbm-compat4 (= 1.18.1-2),
+ libgdbm6 (= 1.18.1-2),
+ libglib2.0-0 (= 2.58.1-2),
+ libgmp10 (= 2:6.1.2+dfsg-3),
+ libgomp1 (= 8.2.0-9),
+ libgpg-error0 (= 1.32-3),
+ libicu63 (= 63.1-4),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.2.0-9),
+ liblsan0 (= 8.2.0-9),
+ liblz4-1 (= 1.8.2-1),
+ liblzma-dev (= 5.2.4-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-1),
+ libmagic1 (= 1:5.35-1),
+ libmount1 (= 2.32.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.1-1),
+ libmpx2 (= 8.2.0-9),
+ libncurses-dev (= 6.1+20181013-1),
+ libncurses6 (= 6.1+20181013-1),
+ libncursesw5-dev (= 6.1+20181013-1),
+ libncursesw6 (= 6.1+20181013-1),
+ libosp5 (= 1.5.2-13+b1),
+ libpam-modules (= 1.1.8-3.8),
+ libpam-modules-bin (= 1.1.8-3.8),
+ libpam-runtime (= 1.1.8-3.8),
+ libpam0g (= 1.1.8-3.8),
+ libpcre16-3 (= 2:8.39-11),
+ libpcre3 (= 2:8.39-11),
+ libpcre3-dev (= 2:8.39-11),
+ libpcre32-3 (= 2:8.39-11),
+ libpcrecpp0v5 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-1),
+ libpipeline1 (= 1.5.0-2),
+ libquadmath0 (= 8.2.0-9),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libselinux1-dev (= 2.8-1+b1),
+ libsepol1 (= 2.8-1),
+ libsepol1-dev (= 2.8-1),
+ libsgmls-perl (= 1.03ii-36),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.32.1-0.1),
+ libstdc++-8-dev (= 8.2.0-9),
+ libstdc++6 (= 8.2.0-9),
+ libsystemd0 (= 239-13),
+ libtinfo5 (= 6.1+20181013-1),
+ libtinfo6 (= 6.1+20181013-1),
+ libtool (= 2.4.6-6),
+ libtsan0 (= 8.2.0-9),
+ libubsan0 (= 7.3.0-30),
+ libubsan1 (= 8.2.0-9),
+ libudev1 (= 239-13),
+ libunistring0 (= 0.9.6+really0.9.3-0.1),
+ libuuid1 (= 2.32.1-0.1),
+ libxml2 (= 2.9.8-1),
+ libyaml-tiny-perl (= 1.73-1),
+ linux-libc-dev (= 4.18.20-2),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.4-3),
+ mawk (= 1.3.3-17),
+ ncurses-base (= 6.1+20181013-1),
+ ncurses-bin (= 6.1+20181013-1),
+ opensp (= 1.5.2-13+b1),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-1),
+ perl-base (= 5.28.1-1),
+ perl-modules-5.28 (= 5.28.1-1),
+ pkg-config (= 0.29-4),
+ po-debconf (= 1.0.21),
+ po4a (= 0.54-1),
+ readline-common (= 7.0-5),
+ sed (= 4.5-2),
+ sensible-utils (= 0.0.12),
+ sgml-base (= 1.29),
+ sysvinit-utils (= 2.92~beta-2),
+ tar (= 1.30+dfsg-3),
+ util-linux (= 2.32.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1),
+ zlib1g-dev (= 1:1.2.11.dfsg-1)
+Environment:
+ AR="xiar"
+ CC="ccache icc"
+ CPP="ccache icc -E"
+ CXX="ccache icpc"
+ DEB_BUILD_OPTIONS="nocheck nodoc parallel=8"
+ DEB_BUILD_PROFILES="nobiarch nocheck nodoc"
+ DEB_CFLAGS_SET="-g -O2 -fdebug-prefix-map=/dev/shm/testdpkg/dpkg-1.19.2=. -Wformat -march=native -pipe -fstack-security-check -Wformat-security"
+ DEB_CXXFLAGS_SET="-g -O2 -fdebug-prefix-map=/dev/shm/testdpkg/dpkg-1.19.2=. -Wformat -march=native -pipe -fstack-security-check -Wformat-security"
+ DEB_FCFLAGS_SET="-g -O2 -fdebug-prefix-map=/dev/shm/testdpkg/dpkg-1.19.2=. -fstack-protector-strong -march=native -pipe -fstack-security-check"
+ DEB_FFLAGS_SET="-g -O2 -fdebug-prefix-map=/dev/shm/testdpkg/dpkg-1.19.2=. -fstack-protector-strong -march=native -pipe -fstack-security-check"
+ DEB_LDFLAGS_SET="-Wl,-z,relro -Wl,--as-needed,--gc-sections,--relax"
+ DPKG_GENSYMBOLS_CHECK_LEVEL="1"
+ LANG="en_US.UTF-8"
+ LC_CTYPE="en_US.UTF-8"
+ LD="xild"
+ LD_LIBRARY_PATH="/opt/intel/lib/intel64_lin:/opt/intel/tbb/lib/intel64/gcc4.7"
+ SOURCE_DATE_EPOCH="1538991828"

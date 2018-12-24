@@ -1,0 +1,13 @@
+c-ctype.lo: ../../../lib/dpkg/c-ctype.c ../../config.h \
+ ../../../lib/compat/compat.h ../../../lib/dpkg/c-ctype.h \
+ /opt/intel/include/stdbool.h ../../../lib/dpkg/macros.h
+
+../../config.h:
+
+../../../lib/compat/compat.h:
+
+../../../lib/dpkg/c-ctype.h:
+
+/opt/intel/include/stdbool.h:
+
+../../../lib/dpkg/macros.h:

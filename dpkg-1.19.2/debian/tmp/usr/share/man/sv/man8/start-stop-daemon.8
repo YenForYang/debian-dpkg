@@ -1,0 +1,297 @@
+.\" dpkg manual page - start-stop-daemon(8)
+.\"
+.\" Copyright © 1999 Klee Dienes <klee@mit.edu>
+.\" Copyright © 1999 Ben Collins <bcollins@debian.org>
+.\" Copyright © 2000-2001 Wichert Akkerman <wakkerma@debian.org>
+.\" Copyright © 2002-2003 Adam Heath <doogie@debian.org>
+.\" Copyright © 2004 Scott James Remnant <keybuk@debian.org>
+.\" Copyright © 2008-2015 Guillem Jover <guillem@debian.org>
+.\"
+.\" This is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program.  If not, see <https://www.gnu.org/licenses/>.
+.
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH start\-stop\-daemon 8 2018-10-08 1.19.2 Dpkg\-sviten
+.nh
+.SH NAMN
+start\-stop\-daemon \- startar och stoppar bakgrundsprocesser
+.
+.SH SYNOPS
+\fBstart\-stop\-daemon\fP [\fIflagga\fP...] \fI\(oatg\(:ard\fP
+.
+.SH BESKRIVNING
+\fBstart\-stop\-daemon\fP anv\(:ands f\(:or att kontrollera hur processer p\(oa systemniv\(oa
+skapas och avslutas. Med hj\(:alp av en av s\(:okflaggorna kan
+\fBstart\-stop\-daemon\fP st\(:allas in att hitta befintliga instanser av en k\(:orande
+process.
+.PP
+Observera att om inte \fB\-\-pid\fP eller \fB\-\-pidfile\fP anges kommer
+\fBstart\-stop\-daemon\fP att jobba p\(oa ett s\(:att som liknar \fBkillall(1).\fP
+\fBstart\-stop\-daemon\fP kommer att s\(:oka i processtabellen efter processer med
+motsvarande namn p\(oa processen, anv\(:andar\-id och/eller grupp\-id (om s\(oadant
+anges). Alla processer som st\(:ammer \(:overens kommer tills\(:andas signalen TERM
+(eller den som anges med \fB\-\-signal\fP eller \fB\-\-retry\fP) om \fB\-\-stop\fP
+anges. F\(:or processer som har l\(oanglivade barn som m\(oaste \(:overleva en
+\fB\-\-stop\fP, m\(oaste du ange en pidfil.
+.
+.SH KOMMANDON
+.TP 
+\fB\-S\fP, \fB\-\-start\fP [\fB\-\-\fP] \fIargument\fP
+Se om en angiven process existerar, och om s\(oa \(:ar fallet g\(:or
+\fBstart\-stop\-daemon\fP ingenting och avslutar med status 1 (0 om \fB\-\-oknodo\fP
+anges). Om en s\(oadan process inte existerar startas en instans, antingen med
+programfilen som anges med \fB\-\-exec\fP eller, om den anges, med
+\fB\-\-startas\fP. Eventuella argument som ges efter \fB\-\-\fP p\(oa kommandoraden
+skickas utan \(:andring till programmet som startas.
+.TP 
+\fB\-K\fP, \fB\-\-stop\fP
+Testa om den angivna processen existerar. Om s\(oa \(:ar fallet s\(:ander
+\fBstart\-stop\-daemon\fP den signal som anges av \fB\-\-signal\fP till processen, och
+avslutar med status 0. Om processen inte finns avslutar \fBstart\-stop\-daemon\fP
+med status 1 (0 om \fB\-\-oknodo\fP anges). Om \fB\-\-retry\fP anges kommer
+\fBstart\-stop\-daemon\fP kontrollera att processen har avslutats.
+.TP 
+\fB\-T\fP, \fB\-\-status\fP
+Check for the existence of a specified process, and returns an exit status
+code, according to the LSB Init Script Actions (since version 1.16.1).
+.TP 
+\fB\-H\fP, \fB\-\-help\fP
+Visa hj\(:alpsk\(:arm och avsluta.
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+Visa programversion och avsluta.
+.
+.SH FLAGGOR
+.SS Matchingsflaggor
+.TP 
+\fB\-\-pid\fP \fIpid\fP
+Check for a process with the specified \fIpid\fP (since version 1.17.6).  The
+\fIpid\fP must be a number greater than 0.
+.TP 
+\fB\-\-ppid\fP \fIppid\fP
+Check for a process with the specified parent pid \fIppid\fP (since version
+1.17.7).  The \fIppid\fP must be a number greater than 0.
+.TP 
+\fB\-p\fP, \fB\-\-pidfile\fP \fIpidfil\fP
+S\(:ok efter processer vars process\-id anges i \fIpidfil\fP.
+.IP
+Note: using this matching option alone might cause unintended processes to
+be acted on, if the old process terminated without being able to remove the
+\fIpid\-file\fP.
+.IP
+\fBWarning:\fP Using this match option alone with a daemon that writes the
+pidfile as an unprivileged user is a security risk, because if the daemon
+gets compromised the contents of the pidfile cannot be trusted, and then a
+privileged runner (such as an init script executed as root) would end up
+acting on any system process.
+.TP 
+\fB\-x\fP, \fB\-\-exec\fP \fIprogramfil\fP
+Se efter processer som \(:ar instanser av \fIprogramfil\fP. Flaggan \fIprogramfil\fP
+b\(:or vara en absolut s\(:okv\(:ag. Observera: detta fungerar kanske inte som det
+ska f\(:or tolkade skript eftersom programfilen kommer peka p\(oa tolken. Notera
+att processer som k\(:ors inuti en chroot ocks\(oa kommer att tr\(:affas, s\(oa andra
+begr\(:ansningar kan beh\(:ovas.
+.TP 
+\fB\-n\fP, \fB\-\-name\fP \fIprocessnamn\fP
+Se efter processer med namnet \fIprocessnamn\fP. \fIProcessnamn\fP \(:ar vanligtvis
+processens filnamn, men kan ha \(:andrats av processen sj\(:alv. Observera: p\(oa de
+flesta system h\(:amtas informationen fr\(oan processens comm\-namn fr\(oan k\(:arnan,
+vilket ofta har en relativt kort l\(:angdbegr\(:ansning (det \(:ar inte portablet att
+anta fler \(:an 15 tecken).
+.TP 
+\fB\-u\fP, \fB\-\-user\fP \fIanv\(:andarnamn\fP|\fIanv\(:andar\-id\fP
+Se efter processer som \(:ags av anv\(:andaren som anges av \fIanv\(:andarnamn\fP eller
+\fIanv\(:ander\-id\fP. Observera: om den h\(:ar flaggan anv\(:ands p\(oa egen hand tr\(:affas
+alla processer som motsvarar anv\(:andaren.
+.
+.SS "Generiska flaggor"
+.TP 
+\fB\-g\fP, \fB\-\-group\fP \fIgrupp\fP|\fIgrupp\-id\fP
+Byt till \fIgrupp\fP eller \fIgrupp\-id\fP n\(:ar processen startas.
+.TP 
+\fB\-s\fP, \fB\-\-signal\fP \fIsignal\fP
+Tillsammans med \fB\-\-stop\fP anger detta den signal som skall s\(:andas till
+processen som stoppas (f\(:orval \(:ar TERM).
+.TP 
+\fB\-R\fP, \fB\-\-retry\fP \fItidsgr\(:ans\fP|\fIschema\fP
+Tillsammans med \fB\-\-stop\fP anger detta att \fBstart\-stop\-daemon\fP skall
+kontrollera att processen avslutas. Den testar flera g\(oanger efter matchande
+processer som k\(:ors, tills ingen l\(:angre finns kvar. Om processerna inte
+avslutar kommer programmet utf\(:ora ytterligare kommandon enligt schemat.
+
+Om \fItidsgr\(:ans\fP anges ist\(:allet f\(:or \fIschema\fP kommer schemat
+\fIsignal\fP\fB/\fP\fItimeout\fP\fB/KILL/\fP\fItimeout\fP att anv\(:andas, d\(:ar \fIsignal\fP \(:ar
+den signal som anges med \fB\-\-signal\fP.
+
+\fIschema\fP \(:ar den lista med \(oatminstone tv\(oa poster avdelade med snedstreck
+(\fB/\fP); varje post \(:ar antingen \fB\-\fP\fIsignalnummer\fP eller
+[\fB\-\fP]\fIsignalnamn\fP, vilket betyder att signalen skall s\(:andas, eller
+\fItimeout\fP, vilket anger det antal sekunder programmet skall v\(:anta p\(oa att
+processen avslutar, eller \fBforever\fP, vilket betyder att resten av schemat
+skall repetera f\(:or evigt om s\(oa beh\(:ovs.
+
+Om slutet p\(oa schemat n\(oas och \fBforever\fP inte anges kommer
+\fBstart\-stop\-daemon\fP avslutas med felkod 2. Om ett schema anges kommer
+eventuell signal angiven med \fB\-\-signal\fP att ignoreras.
+.TP 
+\fB\-a\fP, \fB\-\-startas\fP \fIs\(:okv\(:ag\fP
+Tillsammans med \fB\-\-start\fP anger detta att processen som anges med \fIs\(:okv\(:ag\fP
+skall startas. Om den inte anges anv\(:ands argumentet som gavs till \fB\-\-exec\fP.
+.TP 
+\fB\-t\fP, \fB\-\-test\fP
+Skriver ut vad som skulle ha utf\(:orts och s\(:atter returv\(:ardet, men utf\(:or
+ingenting.
+.TP 
+\fB\-o\fP, \fB\-\-oknodo\fP
+Returnerar felstatus 0 i st\(:allet f\(:or 1 om ingen \(oatg\(:ard utf\(:ors/skulle
+utf\(:orts.
+.TP 
+\fB\-q\fP, \fB\-\-quiet\fP
+Skriv inte informationsmeddelanden; visa endast felmeddelanden.
+.TP 
+\fB\-c\fP, \fB\-\-chuid\fP \fIanv\(:andarnamn\fP|\fIanv\(:andar\-id\fP[\fB:\fP\fIgrupp\fP|\fIgrupp\-id\fP]
+Change to this username/uid before starting the process. You can also
+specify a group by appending a \fB:\fP, then the group or gid in the same way
+as you would for the \fBchown\fP(1) command (\fIuser\fP\fB:\fP\fIgroup\fP).  If a user
+is specified without a group, the primary GID for that user is used.  When
+using this option you must realize that the primary and supplemental groups
+are set as well, even if the \fB\-\-group\fP option is not specified. The
+\fB\-\-group\fP option is only for groups that the user isn't normally a member
+of (like adding per process group membership for generic users like
+\fBnobody\fP).
+.TP 
+\fB\-r\fP, \fB\-\-chroot\fP \fIrot\fP
+Byt katalog och rot till \fBrot\fP innan processen startas. Observera att \(:aven
+pidfilen skrivs efter chroot har utf\(:orts.
+.TP 
+\fB\-d\fP, \fB\-\-chdir\fP \fIs\(:okv\(:ag\fP
+Byt katalog till \fIs\(:okv\(:ag\fP innan processen startas. Detta g\(:ors efter byte av
+rot om \fB\-r\fP|\fB\-\-chroot\fP\-flaggan anges. Om flaggan inte anges kommer
+\fBstart\-stop\-daemon\fP byta till rotkatalogen innan processen startas.
+.TP 
+\fB\-b\fP, \fB\-\-background\fP
+Typically used with programs that don't detach on their own. This option
+will force \fBstart\-stop\-daemon\fP to fork before starting the process, and
+force it into the background.  \fBWarning: start\-stop\-daemon\fP cannot check
+the exit status if the process fails to execute for \fBany\fP reason. This is a
+last resort, and is only meant for programs that either make no sense
+forking on their own, or where it's not feasible to add the code for them to
+do this themselves.
+.TP 
+\fB\-C\fP, \fB\-\-no\-close\fP
+Do not close any file descriptor when forcing the daemon into the background
+(since version 1.16.5).  Used for debugging purposes to see the process
+output, or to redirect file descriptors to log the process output.  Only
+relevant when using \fB\-\-background\fP.
+.TP 
+\fB\-N\fP, \fB\-\-nicelevel\fP \fIheltal\fP
+\(:Andrar prioriteten p\(oa processen innan den startas.
+.TP 
+\fB\-P\fP, \fB\-\-procsched\fP \fIpolicy\fP\fB:\fP\fIprioritet\fP
+This alters the process scheduler policy and priority of the process before
+starting it (since version 1.15.0).  The priority can be optionally
+specified by appending a \fB:\fP followed by the value. The default \fIpriority\fP
+is 0. The currently supported policy values are \fBother\fP, \fBfifo\fP and \fBrr\fP.
+.TP 
+\fB\-I\fP, \fB\-\-iosched\fP \fIklass\fP\fB:\fP\fIprioritet\fP
+This alters the IO scheduler class and priority of the process before
+starting it (since version 1.15.0).  The priority can be optionally
+specified by appending a \fB:\fP followed by the value. The default \fIpriority\fP
+is 4, unless \fIclass\fP is \fBidle\fP, then \fIpriority\fP will always be 7. The
+currently supported values for \fIclass\fP are \fBidle\fP, \fBbest\-effort\fP and
+\fBreal\-time\fP.
+.TP 
+\fB\-k\fP, \fB\-\-umask\fP \fImaskv\(:arde\fP
+This sets the umask of the process before starting it (since version
+1.13.22).
+.TP 
+\fB\-m\fP, \fB\-\-make\-pidfile\fP
+Used when starting a program that does not create its own pid file. This
+option will make \fBstart\-stop\-daemon\fP create the file referenced with
+\fB\-\-pidfile\fP and place the pid into it just before executing the
+process. Note, the file will only be removed when stopping the program if
+\fB\-\-remove\-pidfile\fP is used.  \fBNote:\fP This feature may not work in all
+cases. Most notably when the program being executed forks from its main
+process. Because of this, it is usually only useful when combined with the
+\fB\-\-background\fP option.
+.TP 
+\fB\-\-remove\-pidfile\fP
+Used when stopping a program that does not remove its own pid file (since
+version 1.17.19).  This option will make \fBstart\-stop\-daemon\fP remove the
+file referenced with \fB\-\-pidfile\fP after terminating the process.
+.TP 
+\fB\-v\fP, \fB\-\-verbose\fP
+Skriv ut pratsamma informationsmeddelanden.
+.
+.SH RETURV\(:ARDE
+.TP 
+\fB0\fP
+Efterfr\(oagad \(oatg\(:ard utf\(:ordes. Om \fB\-\-oknodo\fP angavs \(:ar det \(:aven m\(:ojligt att
+ingenting beh\(:ovde utf\(:oras. Det kan h\(:anda n\(:ar \fB\-\-start\fP angavs och en
+motsvarande process redan k\(:orde, eller n\(:ar \fB\-\-stop\fP angavs och det inte
+fanns n\(oagon motsvarande process.
+.TP 
+\fB1\fP
+Om \fB\-\-oknodo\fP inte angavs och ingenting gjordes.
+.TP 
+\fB2\fP
+Om \fB\-\-stop\fP och \fB\-\-retry\fP angavs, men slutet p\(oa tidtabellen n\(oaddes och
+processen fortfarande k\(:ordes.
+.TP 
+\fB3\fP
+Alla andra fel.
+.PP
+Med \fB\-\-status\fP\-\(oatg\(:arden returneras f\(:oljande statuskoder:
+.TP 
+\fB0\fP
+Programmet k\(:or.
+.TP 
+\fB1\fP
+Programmet k\(:or inte och pid\-filen finns.
+.TP 
+\fB3\fP
+Programmet k\(:or inte.
+.TP 
+\fB4\fP
+Kan inte ta reda p\(oa programmets status.
+.
+.SH EXEMPEL
+Starta serverprocessen \fBfood\fP, s\(oavida inte en redan k\(:or (en process med
+namnet food, som k\(:ors som anv\(:andaren food, med process\-id i food.pid):
+.IP
+.nf
+start\-stop\-daemon \-\-start \-\-oknodo \-\-user food \-\-name food \e
+	\-\-pidfile /run/food.pid \-\-startas /usr/sbin/food \e
+	\-\-chuid food \-\- \-\-daemon
+.fi
+.PP
+S\(:and \fBSIGTERM\fP till \fBfood\fP och v\(:anta upp till fem sekunder p\(oa att den
+skall avslutas:
+.IP
+.nf
+start\-stop\-daemon \-\-stop \-\-oknodo \-\-user food \-\-name food \e
+	\-\-pidfile /run/food.pid \-\-retry 5
+.fi
+.PP
+Demonstration av ett skr\(:addarsytt schema f\(:or att avsluta \fBfood\fP:
+.IP
+.nf
+start\-stop\-daemon \-\-stop \-\-oknodo \-\-user food \-\-name food \e
+	\-\-pidfile /run/food.pid \-\-retry=TERM/30/KILL/5
+.fi
+.SH \(:OVERS\(:ATTNING
+Peter Krefting och Daniel Nylander.
